@@ -1,0 +1,14 @@
+body {
+    padding: 5px; /* Relleno. Entre margenes */
+    margin: 10px; /* del borde al siguient elemento */
+    border: solid;
+    border-color: rgb(126, 255, 231);
+  }
+  
+  /*  Propiedades de la caja del párrafo */
+  p {
+    margin: 15px; /* Margen del borde del parrafo */
+    padding: 10px; 
+    border:solid; /* Si ponego 'none' se desactiva el borde */
+    border-color: rgb(255, 173, 239);
+  }
