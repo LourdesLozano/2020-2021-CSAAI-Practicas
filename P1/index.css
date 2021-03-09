@@ -1,83 +1,124 @@
 
 body {
     background: no-repeat;
-    background-image: url('friends2.png');
+    background-image: url('fondo.jpg');
     background-size: cover;
-    
-    
-    
+    font-family: 'Times New Roman', Times, serif;
 }
 
 h1{
     text-align: center;
 }
-
-
-div{
-    font-family: monospace;
-    position: relative;
+h2{
     
+    margin: 6px;
+    padding: 2px;
+    border: solid;
+    border-color: rgb(115, 34, 152);
+    background-image: url("colores.jpeg");
+    font-weight: bold;
+    background-size: cover;
+    color: black;
+    font: small-caps 100%/200% serif;
+    font-size: large;
+}
+
+h3{
+    color: black;
+    font: small-caps 100%/200% serif;
+    font-size: large;
+}
+ 
+ul{
+    list-style-image: url("marco.ico");
+    color: black;
+}
+
+.insta{
+    list-style-image: url("insta.ico");
+}
+.face{
     
 }
 
 
+#nombre{
+    width: 210px;
+    margin: 6px;
+    padding: 2px;
+    border: solid;
+    border-color: rgb(115, 34, 152);
+    background-color: rgba(196, 109, 237, 0.619);
+    font-weight: bold;
+    background-size: cover;
+}
+
+.fila1{
+    color: black;
+}
+.fila21{
+    color: rgb(255, 61, 61);
+}
+.fila22{
+    color: rgb(255, 244, 94);
+}
+.fila23{
+    color: rgb(130, 199, 242);
+}
 
 .datos{
-    
-   
     margin: 6px;
     padding: 2px;
     border: solid;
-    border-color: rgb(115, 34, 152);
-    background-color: rgba(196, 109, 237, 0.619);
+    border-color: rgb(207, 195, 29);
+    background-color: rgba(232, 247, 135, 0.619);
     font-weight: bold;
     background-size: cover;
-   
-    
 }  
+    
+
 
 .experiencia{
-  
     margin: 6px;
     padding: 2px;
     border: solid;
-    border-color: rgb(115, 34, 152);
-    background-color: rgba(196, 109, 237, 0.619);
+    border-color: rgb(21, 127, 193);
+    background-color: rgba(117, 192, 242, 0.619);
     font-weight: bold;
     background-size: cover;
 
 }
 
+
 .izquierda{
-    width: 260px;
+    width: 235px;
     float:left;
 
 }
 
-.texto{
-    background-color: transparent;
-
-}
 
 .presentacion{
+    margin: 6px;
+    padding: 2px;
     text-align:center;
     margin-left: 280px;
-    padding: 4 4 4 4px; 
-    
     border: solid;
     border-color: rgb(115, 34, 152);
-    background-color: rgba(196, 109, 237, 0.619);
-    font-weight: bold;
+    background: no-repeat;
+    background-image: url("gif.webp");
     background-size: cover;
+    font-size: large;
+    
+    
 }
 .idiomas{
-    text-align:center;
+    margin: 6px;
+    padding: 2px;
     margin-left: 280px;
-    padding: 4 4 4 4px; 
-    top: 20px;
     border: solid;
-    border-color: rgb(115, 34, 152);
-    background-color: rgba(196, 109, 237, 0.619);
+    border-color: rgb(177, 26, 26);
+    background-color: rgba(237, 130, 130, 0.619);
     font-weight: bold;
     background-size: cover;
+    color:black;
 }
