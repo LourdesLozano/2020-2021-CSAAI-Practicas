@@ -34,11 +34,26 @@ ul{
     color: black;
 }
 
+.foto{
+    position: absolute;
+    height:140px;
+    
+    left: 67.5px;
+        
+    top: 325px;
+    
+}
+.marco{
+    height: 300px;
+    width: 300px;
+    left: 300px;
+    top: 140px;
+}
 .insta{
     list-style-image: url("insta.ico");
 }
 .face{
-    
+
 }
 
 
@@ -51,6 +66,7 @@ ul{
     background-color: rgba(196, 109, 237, 0.619);
     font-weight: bold;
     background-size: cover;
+    
 }
 
 .fila1{
