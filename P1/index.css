@@ -1,7 +1,7 @@
 
 body {
     background: no-repeat;
-    background-image: url('friends.jpg');
+    background-image: url('friends2.png');
     background-size: cover;
     
     
@@ -21,14 +21,15 @@ div{
 }
 
 
+
 .datos{
     
    
     margin: 6px;
     padding: 2px;
     border: solid;
-    border-color: rgb(206, 186, 33);
-    background-image: url('girasol.jpg');
+    border-color: rgb(115, 34, 152);
+    background-color: rgba(196, 109, 237, 0.619);
     font-weight: bold;
     background-size: cover;
    
@@ -40,8 +41,8 @@ div{
     margin: 6px;
     padding: 2px;
     border: solid;
-    border-color: rgb(206, 186, 33);
-    background-image: url('girasol.jpg');
+    border-color: rgb(115, 34, 152);
+    background-color: rgba(196, 109, 237, 0.619);
     font-weight: bold;
     background-size: cover;
 
@@ -60,7 +61,23 @@ div{
 
 .presentacion{
     text-align:center;
-    margin-left: 170px;
+    margin-left: 280px;
     padding: 4 4 4 4px; 
-    width: 460px;
+    
+    border: solid;
+    border-color: rgb(115, 34, 152);
+    background-color: rgba(196, 109, 237, 0.619);
+    font-weight: bold;
+    background-size: cover;
+}
+.idiomas{
+    text-align:center;
+    margin-left: 280px;
+    padding: 4 4 4 4px; 
+    top: 20px;
+    border: solid;
+    border-color: rgb(115, 34, 152);
+    background-color: rgba(196, 109, 237, 0.619);
+    font-weight: bold;
+    background-size: cover;
 }
