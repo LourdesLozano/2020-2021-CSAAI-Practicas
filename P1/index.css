@@ -10,9 +10,9 @@ h1{
     text-align: center;
 }
 h2{
-    
-    margin: 6px;
-    padding: 2px;
+    text-align:center;
+    margin: 4px;
+    padding: 1px;
     border: solid;
     border-color: rgb(115, 34, 152);
     background-image: url("colores.jpeg");
@@ -35,20 +35,20 @@ ul{
 }
 
 .foto{
-    position: absolute;
-    height:140px;
-    
-    left: 67.5px;
-        
-    top: 382px;
-    
+    display:block;
+    border: none;
+    margin:auto;
+    padding: 60px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    background-image: url("marco.png");
+    background-size: cover;
+    width: 130px;
+  
 }
-.marco{
-    height: 300px;
-    width: 300px;
-    left: 300px;
-    top: 140px;
-}
+
+
+
 .insta{
     list-style-image: url("insta.ico");
 }
@@ -124,6 +124,7 @@ ul{
     background-image: url("gif.webp");
     background-size: cover;
     font-size: large;
+    color: white;
     
     
 }
