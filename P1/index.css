@@ -117,6 +117,7 @@ ul{
 
 
 .presentacion{
+    width: 450px;
     margin: 6px;
     padding: 2px;
     text-align:center;
@@ -132,11 +133,36 @@ ul{
     
 }
 .idiomas{
+    width: 450px;
     margin: 6px;
     padding: 2px;
     margin-left: 280px;
     border: rgb(177, 26, 26) 5px outset;
     background-color: rgba(237, 130, 130, 0.619);
+    font-weight: bold;
+    background-size: cover;
+    color:black;
+}
+
+.aficiones{
+    width: 450px;
+    margin: 6px;
+    padding: 2px;
+    margin-left: 280px;
+    border: rgb(177, 26, 26) 5px outset;
+    background-color: rgba(237, 130, 130, 0.619);
+    font-weight: bold;
+    background-size: cover;
+    color:black;
+}
+
+.referencias{
+    width: 450px;
+    margin: 6px;
+    padding: 2px;
+    margin-left: 280px;
+    border-color: rgb(115, 34, 152);
+    background-color: rgba(196, 109, 237, 0.619);
     font-weight: bold;
     background-size: cover;
     color:black;
