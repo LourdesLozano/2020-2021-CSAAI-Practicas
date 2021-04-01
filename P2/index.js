@@ -37,7 +37,6 @@ function digito(ev)
     
 }
 
-
 //-- Obtener una colección con todos los elementos
 //-- de la clase digito
 digitos = document.getElementsByClassName("digito")
