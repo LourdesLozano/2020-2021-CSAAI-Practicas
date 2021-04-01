@@ -4,6 +4,7 @@ display = document.getElementById("display")
 suma = document.getElementById("suma")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
+clearone = document.getElementById("clearone")
 option = document.getElementById("option")
 
 //-- Estados de la calculadora
@@ -20,52 +21,88 @@ const ESTADO = {
  let estado = ESTADO.INIT;   
 
 //-- Función de retrollamada de los digitos
-function digito(bottom){
+function digito(boton){
     if(estado == ESTADO.INIT){
-        display.innerHTML = bottom;
+        display.innerHTML = boton;
         estado = ESTADO.OP1;
     }else if(estado == ESTADO.OP1){
-        display.innerHTML += bottom;
+        display.innerHTML += boton;
     }else if(estado == ESTADO.OP2){
-        display.innerHTML += bottom;
+        display.innerHTML += boton;
       estado = ESTADO.OP3;
     }else if (estado == ESTADO.OP3) {
-      display.innerHTML +=  bottom;
+      display.innerHTML +=  boton;
       estado = ESTADO.OP4;
     }else if (estado == ESTADO.OP4){
-      display.innerHTML += bottom;
+      display.innerHTML += boton;
     }
 }
 
 //-- Obtener una colección con todos los elementos
 //-- de la clase digito
-digitos = document.getElementsByClassName("digito")
-
-for (let boton of digitos) {
-
-    boton.onclick = digito;
+let digitos = document.getElementsByClassName("digito")
+for(i=0; i<digitos.length; i++){
+    digitos[i].onclick = (ev) =>{
+        digito(ev.target.value);
+        console.log(estado, "digito");
+    }
 }
 
+// Leemos operaciones
+let operation = document.getElementsByClassName("operation")
+for(i=0; i<operation.length; i++){
+    operation[i].onclick = (ev) =>{
+        operations(ev.target.value);
+        console.log(estado, "operation");
+    }
+}
 
-//-- Operación de sumar
-suma.onclick = (ev) => {
+function operations(operation){
+    if (estado != ESTADO.OP2){
+        display.innerHTML += operation;
+        estado = ESTADO.OP2;
+      }
+}
 
-    //-- Insertar simbolo de sumar
-    display.innerHTML += ev.target.value;
-
+function option(){
+    currentvalue = document.getElementById('option').value;
+    document.getElementById("display").style.backgroundColor = "black";
+    if(currentvalue == "on"){
+        option.value="off";
+        document.getElementById("display").style.backgroundColor =  "rgba(255, 0, 0, 0.705)";
+        document.getElementById("option").style.backgroundColor = "rgb(27, 80, 255)";
+        display.innerHTML = "0";
+        estado = ESTADO.INIT;
+    }else{
+        option.value="on";
+        document.getElementById("display").style.backgroundColor = "black";
+        document.getElementById("option").style.backgroundColor = "white";
+    }
 }
 
 //-- Evaluar la expresion
 igual.onclick = () => {
-  
-    //-- Calcular la expresión y añadirla al display
     display.innerHTML = eval(display.innerHTML);
-  
 }
 
+// Borrar último dígito
+clearone.onclick = () => {
+    display.innerHTML = display.innerHTML.slice(0,-1);
+}
+
+// Poner coma
+coma.onclick = () => {
+    if(estado == ESTADO.OP1 || estado == ESTADO.OP3 || estado == ESTADO.INIT){
+      display.innerHTML += coma.innerHTML;
+      estado = ESTADO.OP2;
+      console.log(estado, "coma");
+    }
+}
+  
 //-- Poner a cero la expresion
 //-- Y volver al estado inicial
 clear.onclick = () => {
   display.innerHTML = "0";
+  console.log("clear");
   estado = ESTADO.INIT;
 }
