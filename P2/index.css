@@ -1,8 +1,9 @@
 body{
-    margin-left: 60px;
+    background: no-repeat;
+    
     background-image: url(monsters.jpg);
     background-size: cover;
-    background: no-repeat;
+    
     
 }
 
