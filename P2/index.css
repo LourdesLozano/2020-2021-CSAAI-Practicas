@@ -53,12 +53,16 @@ button{
 }
 
 #clear{
+    background-image: url('sully.png');
+    background-size: cover;
     border: rgb(66, 179, 191) 5px outset;
     background-color: rgba(135, 218, 250, 0.934);
     
 }
 
 #clearone{
+    background-image: url('sully.png');
+    background-size: cover;
     border: rgb(66, 179, 191) 5px outset;
     background-color: rgba(135, 218, 250, 0.934);
 }
@@ -79,4 +83,18 @@ button{
     border: rgb(227, 93, 198) 5px outset;
     background-color: rgba(233, 88, 192, 0.872);
    
+}
+
+#igual{
+    background-image: url('mike.png');
+    background-size: cover;
+    border: rgb(51, 179, 113) 5px outset;
+    background-color: rgba(133, 232, 171, 0.934);
+}
+
+#coma{
+    background-image: url('randall.webp');
+    background-size: cover;
+    background-color: rgb(190, 121, 239);
+    border: rgb(161, 97, 238) 5px outset;
 }
