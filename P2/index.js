@@ -5,7 +5,7 @@ suma = document.getElementById("suma")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 clearone = document.getElementById("clearone")
-option = document.getElementById("option")
+
 
 //-- Estados de la calculadora
 const ESTADO = {
@@ -64,26 +64,16 @@ function operations(operation){
       }
 }
 
-function option(){
-    currentvalue = document.getElementById('option').value;
-    document.getElementById("display").style.backgroundColor = "black";
-    if(currentvalue == "on"){
-        option.value="off";
-        document.getElementById("display").style.backgroundColor =  "rgba(255, 0, 0, 0.705)";
-        document.getElementById("option").style.backgroundColor = "rgb(27, 80, 255)";
-        display.innerHTML = "0";
-        estado = ESTADO.INIT;
-    }else{
-        option.value="on";
-        document.getElementById("display").style.backgroundColor = "black";
-        document.getElementById("option").style.backgroundColor = "white";
-    }
-}
 
 //-- Evaluar la expresion
 igual.onclick = () => {
     display.innerHTML = eval(display.innerHTML);
 }
+
+// Raiz cuadrada
+sqrt.onclick = () => {
+    display.innerHTML = Math.sqrt(display.innerHTML);
+  }
 
 // Borrar último dígito
 clearone.onclick = () => {
@@ -100,7 +90,6 @@ coma.onclick = () => {
 }
   
 //-- Poner a cero la expresion
-//-- Y volver al estado inicial
 clear.onclick = () => {
   display.innerHTML = "0";
   console.log("clear");
