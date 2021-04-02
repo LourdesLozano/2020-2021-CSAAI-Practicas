@@ -72,8 +72,8 @@ igual.onclick = () => {
 
 // Raiz cuadrada
 sqrt.onclick = () => {
-    display.innerHTML = Math.sqrt(display.innerHTML);
-  }
+    display.innerHTML += Math.sqrt(display.innerHTML);
+}
 
 // Borrar último dígito
 clearone.onclick = () => {
