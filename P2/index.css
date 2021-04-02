@@ -2,6 +2,7 @@ body{
     margin-left: 60px;
     background-image: url(monsters.jpg);
     background-size: cover;
+    background: no-repeat;
     
 }
 
