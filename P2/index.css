@@ -8,11 +8,12 @@ body{
 }
 
 .calculadora{
+    
     border: solid;
     border-radius: 20px;
     border-radius: 20px;
     width: 330px;
-    margin: 6px;
+    margin: auto;
     padding: 2px;
     border-color: rgb(82, 20, 69);
     background-color: rgb(250, 212, 241);
