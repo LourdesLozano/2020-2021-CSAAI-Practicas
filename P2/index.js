@@ -15,8 +15,8 @@ const ESTADO = {
     OP4: 4
 }
  
- //-- Variable de estado de la calculadora
- //-- Al comenzar estamos en el estado incial
+//-- Variable de estado de la calculadora
+//-- Al comenzar estamos en el estado incial
  let estado = ESTADO.INIT;   
 
 //-- Función de retrollamada de los digitos
