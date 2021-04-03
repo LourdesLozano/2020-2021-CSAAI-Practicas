@@ -6,7 +6,6 @@ igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 clearone = document.getElementById("clearone")
 
-
 //-- Estados de la calculadora
 const ESTADO = {
     INIT: 0,
@@ -63,7 +62,6 @@ function operations(operation){
         estado = ESTADO.OP2;
       }
 }
-
 
 //-- Evaluar la expresion
 igual.onclick = () => {
