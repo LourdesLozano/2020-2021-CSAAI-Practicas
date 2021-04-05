@@ -68,10 +68,6 @@ igual.onclick = () => {
     display.innerHTML = eval(display.innerHTML);
 }
 
-// Raiz cuadrada
-sqrt.onclick = () => {
-    display.innerHTML += Math.sqrt(display.innerHTML);
-}
 
 // Borrar último dígito
 clearone.onclick = () => {
