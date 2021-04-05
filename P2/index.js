@@ -75,6 +75,7 @@ sqrt.onclick = () => {
 
 // Borrar último dígito
 clearone.onclick = () => {
+    estado = ESTADO.OP2;
     display.innerHTML = display.innerHTML.slice(0,-1);
 }
 
