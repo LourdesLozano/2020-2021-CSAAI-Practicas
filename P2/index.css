@@ -6,13 +6,13 @@ body{
 
 .calculadora{
     
-    border: solid;
+    border: rgb(199, 94, 176) 6px outset;
     border-radius: 20px;
     border-radius: 20px;
     width: 390px;
     margin: auto;
     padding: 10px;
-    border-color: rgb(82, 20, 69);
+
     background-color: rgb(250, 212, 241);
 }
 
