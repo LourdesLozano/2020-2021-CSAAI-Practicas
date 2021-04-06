@@ -9,16 +9,12 @@ canvas.height = 100;
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
 
+//-- Texto solido
+ctx.font = "25px Arial";
+ctx.fillStyle = 'yellow'
+ctx.fillText("Texo sólido", 10, 30);
 
-ctx.beginPath();
-    ctx.arc(100,50,20,0, 2 * Math.PI/2);
-    ctx.strokeStyle = 'purple';
-    ctx.lineWidth = 3;
-    ctx.fillStyle = 'yellow'
-    
-
-    //-- Dibujar el trazo
-    ctx.stroke()
-    ctx.fillStyle()
-    
-ctx.closePath()
+//-- Texto trazo
+ctx.strokeStyle = 'purple';
+ctx.font = "35px Arial";
+ctx.strokeText("Texto trazo", 5, 80);
