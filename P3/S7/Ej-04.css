@@ -1,0 +1,7 @@
+/*
+   Clase color. Cambiar el color
+   del fondo
+*/
+.color {
+    background: rgb(230, 173, 227);
+  }
