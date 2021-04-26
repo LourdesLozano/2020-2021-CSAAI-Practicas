@@ -4,13 +4,13 @@ const canvas = document.getElementById("canvas");
 
 //-- Definir el tamaño del convas
 canvas.width = 500;
-canvas.height = 900;
+canvas.height = 600;
 
 // Coordenadas
 let X_bloque = 210;
-let Y_bloque = 840;
+let Y_bloque = 540;
 let X_bola = 250;
-let Y_bola = 680;
+let Y_bola = 280;
 
 // Velocidades
 let velocidad_X = 4;
@@ -68,7 +68,7 @@ function update(){
     Y_bola = Y_bola + velocidad_Y;
 
     // Choque con mi bloque
-    if(X_bola >= X_bloque && X_bola < (X_bloque+80+10) && Y_bola >= Y_bloque && Y_bola < (Y_bloque+20+10)){
+    if(X_bola >= X_bloque-10 && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
         velocidad_X = -velocidad_X;
         velocidad_Y = -velocidad_Y;
     }
