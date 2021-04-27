@@ -90,6 +90,18 @@ function bola(){
     ctx.closePath();
 }
 
+// funcion destruir ladrillo
+function BYE_ladrillo(){
+    for(let i = 0; i < LADRILLO.FILA; i++){
+        for(let j = 0; j < LADRILLO.COLUMNA; j++){
+            if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+50+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
+                ladrillos[i][j].VISIBLE = false;
+                velocidad_Y = -velocidad_Y;
+            }
+        }
+    }  
+}
+
 
 function update(){
 
@@ -136,6 +148,8 @@ function update(){
         if(X_bloque > 420){
             X_bloque = 420;
         }
+
+        BYE_ladrillo();
     }
     
     // Borrar el canvas
@@ -181,7 +195,8 @@ window.onkeydown = (e) => {
             estado = ESTADO.JUEGO;
             break;
     }
-  }
+}
+
 // estado inicial
 function inicio(){
     if(estado == ESTADO.INIT){
@@ -195,8 +210,3 @@ function inicio(){
 
 // Empezamos funciton
 update();
-
-
-
-    
-
