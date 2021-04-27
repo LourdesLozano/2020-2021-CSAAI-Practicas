@@ -31,8 +31,10 @@ const ESTADO = {
     let estado = ESTADO.INIT
 
 // ladrillos
-let X_inicio = 18;
-let Y_inicio = 18;
+let X_inicio = 15;
+let Y_inicio = 15;
+
+var A_colores = ['rgb(255, 0, 0)','rgb(255, 255, 0)','purple','lightblue']
 
 const LADRILLO = {
     FILA: 5,
@@ -54,11 +56,12 @@ for(let i = 0; i < LADRILLO.FILA; i++){
             W: LADRILLO.W,
             H: LADRILLO.H,
             PADDING: LADRILLO.PADDING,
-            VISIBLE: LADRILLO.VISIBLE
+            VISIBLE: LADRILLO.VISIBLE,
+            color: A_colores[Math.floor(Math.random()*4)]
+            
         };
     }
 }
-
 
 // funcion dibujar bloque
 function bloque(){
@@ -145,7 +148,7 @@ function update(){
             if(ladrillos[i][j].VISIBLE){
                 ctx.beginPath();
                 ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.W, LADRILLO.H);
-                ctx.fillStyle ='yellow';
+                ctx.fillStyle = ladrillos[i][j].color;
                 ctx.fill();
                 ctx.closePath;
             }
