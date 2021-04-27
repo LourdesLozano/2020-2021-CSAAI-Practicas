@@ -6,6 +6,9 @@ const canvas = document.getElementById("canvas");
 canvas.width = 500;
 canvas.height = 600;
 
+//-- Obtener el contexto del canvas
+const ctx = canvas.getContext("2d");
+
 // Coordenadas
 let X_bloque = 210;
 let Y_bloque = 560;
@@ -27,8 +30,35 @@ const ESTADO = {
 }
     let estado = ESTADO.INIT
 
-//-- Obtener el contexto del canvas
-const ctx = canvas.getContext("2d");
+// ladrillos
+let X_inicio = 18;
+let Y_inicio = 18;
+
+const LADRILLO = {
+    FILA: 5,
+    COLUMNA: 9,
+    W: 50, //ancho
+    H: 30, // alto
+    PADDING: 20, // espacio alrededor del ladrillo
+    VISIBLE: true // estado del ladrillo
+}
+const ladrillos = [];
+
+// ladrillos
+for(let i = 0; i < LADRILLO.FILA; i++){
+    ladrillos[i] = []; // inicializamos filas
+    for(let j = 0; j < LADRILLO.COLUMNA; j++){
+        ladrillos[i][j] = {
+            x: X_inicio + (LADRILLO.W + LADRILLO.PADDING) * j,
+            y: Y_inicio + (LADRILLO.H + LADRILLO.PADDING) * i,
+            W: LADRILLO.W,
+            H: LADRILLO.H,
+            PADDING: LADRILLO.PADDING,
+            VISIBLE: LADRILLO.VISIBLE
+        };
+    }
+}
+
 
 // funcion dibujar bloque
 function bloque(){
@@ -56,6 +86,7 @@ function bola(){
         ctx.fill()
     ctx.closePath();
 }
+
 
 function update(){
 
@@ -90,10 +121,36 @@ function update(){
             velocidad_Y = -velocidad_Y;
         }
 
+        // si no golpeo, pierdo
+        if(Y_bola > 570){
+            estado = ESTADO.INIT;
+        }
+
+        // Que no desaparezca mi bloque
+        if(X_bloque < 0){
+            X_bloque = 0;
+        }
+        if(X_bloque > 420){
+            X_bloque = 420;
+        }
     }
     
     // Borrar el canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // dibujamos los ladrillos
+    for(let i = 0; i < LADRILLO.FILA; i++){
+        for(let j = 0; j < LADRILLO.COLUMNA; j++){
+            // si es viisble, se pinta
+            if(ladrillos[i][j].VISIBLE){
+                ctx.beginPath();
+                ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.W, LADRILLO.H);
+                ctx.fillStyle ='yellow';
+                ctx.fill();
+                ctx.closePath;
+            }
+        }
+    }
 
     // Dibujamos elementos visibles
     // Mi bloque
@@ -106,7 +163,6 @@ function update(){
     requestAnimationFrame(update);
 
 }
-
 
 // mover bloque
 window.onkeydown = (e) => {
