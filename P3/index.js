@@ -27,6 +27,7 @@ const ESTADO = {
     INIT : 0,
     BEGIN : 1,
     JUEGO : 2,
+    FIN: 3
 }
     let estado = ESTADO.INIT
 
@@ -134,8 +135,22 @@ function puntuacion(){
 function vidas_(){
     
     ctx.fillStyle = 'black';
-    ctx.fillText('vidas: ', 400, 20);
+    ctx.fillText('Vidas: ', 400, 20);
     ctx.fillText(vidas, 450, 20);
+}
+
+// funcion perder
+function perder(){
+    if(estado == ESTADO.FIN){
+        estado = ESTADO.INIT;
+        vidas = 3;
+        puntos = 0;
+        for(let i = 0; i < LADRILLO.FILA; i++){
+            for(let j = 0; j < LADRILLO.COLUMNA; j++){
+                ladrillos[i][j].VISIBLE = true;
+            }
+        }
+    }
 }
 
 
@@ -236,6 +251,10 @@ function update(){
         }
     }
 
+    if(vidas == 0){
+        estado = ESTADO.FIN;
+    }
+
     // Dibujamos elementos visibles
     // Mi bloque
     bloque();
@@ -248,6 +267,9 @@ function update(){
 
     // vidas
     vidas_();
+
+    // perder
+    perder();
 
     // Volver a ejecutar cuando toque
     requestAnimationFrame(update);
