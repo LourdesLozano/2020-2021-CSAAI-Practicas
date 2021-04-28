@@ -4,20 +4,20 @@ const canvas = document.getElementById("canvas");
 
 //-- Definir el tamaño del convas
 canvas.width = 500;
-canvas.height = 600;
+canvas.height = 800;
 
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
 
 // Coordenadas
 let X_bloque = 210;
-let Y_bloque = 560;
+let Y_bloque = 760;
 let X_bola = 250;
-let Y_bola = 380;
+let Y_bola = 720;
 
 // Velocidades
-let velocidad_X = 4;
-let velocidad_Y = 2;
+let velocidad_X = 5;
+let velocidad_Y = -3;
 
 // para mover bloque
 var evento = window.event;
@@ -30,16 +30,23 @@ const ESTADO = {
 }
     let estado = ESTADO.INIT
 
-// ladrillos
-let X_inicio = 15;
-let Y_inicio = 15;
+// puntos
+let puntos = 0;
 
-var A_colores = ['rgb(255, 0, 0)','rgb(255, 255, 0)','purple','lightblue']
+// ladrillos
+let X_inicio = 14;
+let Y_inicio = 80;
+
+var color1 = 'rgb(255, 0, 0)';
+var color2 = 'rgb(255, 255, 0)';
+var color3 = 'purple';
+var color4 = 'lightblue';
+var A_colores = [color1,color2,color3,color4]
 
 const LADRILLO = {
     FILA: 5,
     COLUMNA: 9,
-    W: 50, //ancho
+    W: 35, //ancho
     H: 30, // alto
     PADDING: 20, // espacio alrededor del ladrillo
     VISIBLE: true // estado del ladrillo
@@ -94,13 +101,62 @@ function bola(){
 function BYE_ladrillo(){
     for(let i = 0; i < LADRILLO.FILA; i++){
         for(let j = 0; j < LADRILLO.COLUMNA; j++){
-            if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+50+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
+            if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+35+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
                 ladrillos[i][j].VISIBLE = false;
                 velocidad_Y = -velocidad_Y;
+                if(ladrillos[i][j].color == color1){
+                    puntos = puntos + 1;
+                }
+                if(ladrillos[i][j].color == color2){
+                    puntos = puntos + 1;
+                }
+                if(ladrillos[i][j].color == color3){
+                    puntos = puntos + 1;
+                }
+                if(ladrillos[i][j].color == color4){
+                    puntos = puntos + 1;
+                }
             }
         }
     }  
 }
+
+function puntuacion(){
+    ctx.font = "20px";
+    ctx.fillStyle = 'black';
+    ctx.fillText('Puntos: ', 10, 20);
+    ctx.fillText(puntos, 50, 20);
+}
+
+
+// estado inicial
+function inicio(){
+    if(estado == ESTADO.INIT){
+        X_bola = 250;
+        Y_bola = 710;
+        X_bloque = 210;
+        Y_bloque = 760;
+        velocidad_X = 0;
+        velocidad_Y = 0;
+    }
+}
+
+// mover bloque
+window.onkeydown = (e) => {
+    console.log();
+    //-- Según la tecla se hace una cosa u otra
+    switch (e.key) {
+        case ".": // derecha
+            X_bloque = X_bloque + 20;
+            break;
+        case ",": //izquierda
+            X_bloque = X_bloque - 20; 
+        case " ":
+            estado = ESTADO.JUEGO;
+            break;
+    }
+}
+
 
 
 function update(){
@@ -112,8 +168,8 @@ function update(){
     if(estado == ESTADO.JUEGO){
 
         if(velocidad_X == 0 && velocidad_Y == 0){
-            velocidad_X = 4;
-            velocidad_Y = 2;
+            velocidad_X = 5;
+            velocidad_Y = -3;
         }
 
         // Rebote vertical
@@ -137,7 +193,7 @@ function update(){
         }
 
         // si no golpeo, pierdo
-        if(Y_bola > 570){
+        if(Y_bola > 770){
             estado = ESTADO.INIT;
         }
 
@@ -176,35 +232,12 @@ function update(){
     // Mi bola
     bola();
 
+    // puntos
+    puntuacion();
+
     // Volver a ejecutar cuando toque
     requestAnimationFrame(update);
 
-}
-
-// mover bloque
-window.onkeydown = (e) => {
-    console.log();
-    //-- Según la tecla se hace una cosa u otra
-    switch (e.key) {
-        case ".": // derecha
-            X_bloque = X_bloque + 16;
-            break;
-        case ",": //izquierda
-            X_bloque = X_bloque - 16; 
-        case " ":
-            estado = ESTADO.JUEGO;
-            break;
-    }
-}
-
-// estado inicial
-function inicio(){
-    if(estado == ESTADO.INIT){
-        X_bola = 250;
-        Y_bola = 380;
-        velocidad_X = 0;
-        velocidad_Y = 0;
-    }
 }
 
 
