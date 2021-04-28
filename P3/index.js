@@ -33,6 +33,9 @@ const ESTADO = {
 // puntos
 let puntos = 0;
 
+// vidas
+let vidas = 3;
+
 // ladrillos
 let X_inicio = 14;
 let Y_inicio = 80;
@@ -122,10 +125,17 @@ function BYE_ladrillo(){
 }
 
 function puntuacion(){
-    ctx.font = "20px";
+    
     ctx.fillStyle = 'black';
     ctx.fillText('Puntos: ', 10, 20);
     ctx.fillText(puntos, 50, 20);
+}
+
+function vidas_(){
+    
+    ctx.fillStyle = 'black';
+    ctx.fillText('vidas: ', 400, 20);
+    ctx.fillText(vidas, 450, 20);
 }
 
 
@@ -195,6 +205,7 @@ function update(){
         // si no golpeo, pierdo
         if(Y_bola > 770){
             estado = ESTADO.INIT;
+            vidas = vidas - 1; // si no golpeo, resto una vida
         }
 
         // Que no desaparezca mi bloque
@@ -234,6 +245,9 @@ function update(){
 
     // puntos
     puntuacion();
+
+    // vidas
+    vidas_();
 
     // Volver a ejecutar cuando toque
     requestAnimationFrame(update);
