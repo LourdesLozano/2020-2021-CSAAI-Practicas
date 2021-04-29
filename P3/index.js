@@ -37,14 +37,18 @@ let puntos = 0;
 // vidas
 let vidas = 3;
 
+// sonidos
+const destruir = new Audio("plop.mp3");
+const rebote = new Audio("raqueta.mp3");
+
 // ladrillos
 let X_inicio = 14;
 let Y_inicio = 80;
 
-var color1 = 'rgb(255, 0, 0)';
-var color2 = 'rgb(255, 255, 0)';
-var color3 = 'purple';
-var color4 = 'lightblue';
+var color1 = 'rgb(102, 221, 150)'; // amarillo
+var color2 = 'rgb(215, 102, 221)'; // rosa
+var color3 = 'rgb(241, 234, 96)'; // verde
+var color4 = 'rgb(96, 114, 241)'; // azul
 var A_colores = [color1,color2,color3,color4]
 
 const LADRILLO = {
@@ -79,7 +83,7 @@ function bloque(){
     ctx.beginPath();
         ctx.rect(X_bloque,Y_bloque, 80, 20);
         //-- Color de relleno del rectángulo
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = 'rgb(100, 100, 255';
         //-- Mostrar el relleno
         ctx.fill();
         //-- Mostrar el trazo del rectángulo
@@ -89,11 +93,13 @@ function bloque(){
 
 // funcion dibujar bola
 function bola(){
+    var imagen = new Image();
+    imagen.src = 'bola.jpg'
     ctx.beginPath();
         ctx.arc(X_bola, Y_bola, 10, 0, 2 * Math.PI);
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 3;
-        ctx.fillStyle = 'lightblue';
+        ctx.fillStyle = ctx.createPattern(imagen, "repeat");
         //-- Dibujar el trazo
         ctx.stroke()
         //-- Dibujar el relleno
@@ -106,19 +112,21 @@ function BYE_ladrillo(){
     for(let i = 0; i < LADRILLO.FILA; i++){
         for(let j = 0; j < LADRILLO.COLUMNA; j++){
             if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+35+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
+                destruir.play();
                 ladrillos[i][j].VISIBLE = false;
                 velocidad_Y = -velocidad_Y;
+                
                 if(ladrillos[i][j].color == color1){
                     puntos = puntos + 1;
                 }
                 if(ladrillos[i][j].color == color2){
-                    puntos = puntos + 1;
+                    puntos = puntos + 2;
                 }
                 if(ladrillos[i][j].color == color3){
-                    puntos = puntos + 1;
+                    puntos = puntos + 5;
                 }
                 if(ladrillos[i][j].color == color4){
-                    puntos = puntos + 1;
+                    puntos = puntos + 10;
                 }
             }
         }
@@ -126,17 +134,17 @@ function BYE_ladrillo(){
 }
 
 function puntuacion(){
-    
+    ctx.font = "25px Original Surfer"
     ctx.fillStyle = 'black';
-    ctx.fillText('Puntos: ', 10, 20);
-    ctx.fillText(puntos, 50, 20);
+    ctx.fillText('Puntos: ', 10, 30);
+    ctx.fillText(puntos, 90, 30);
 }
 
 function vidas_(){
-    
+    ctx.font = "25px Original Surfer"
     ctx.fillStyle = 'black';
-    ctx.fillText('Vidas: ', 400, 20);
-    ctx.fillText(vidas, 450, 20);
+    ctx.fillText('Vidas: ', 400, 30);
+    ctx.fillText(vidas, 470, 30);
 }
 
 // funcion perder
@@ -152,7 +160,6 @@ function perder(){
         }
     }
 }
-
 
 // estado inicial
 function inicio(){
@@ -213,8 +220,10 @@ function update(){
 
         // Choque con mi bloque
         if(X_bola >= X_bloque-10 && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
+            rebote.play();
             velocidad_X = -velocidad_X;
             velocidad_Y = -velocidad_Y;
+            
         }
 
         // si no golpeo, pierdo

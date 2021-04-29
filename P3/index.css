@@ -1,8 +1,25 @@
+@font-face{
+  font-family: 'Original Surfer', cursive;
+  src: url("OriginalSurfer-Regular.ttf")
+}
+
 canvas {
-    background-color: rgb(238, 197, 240);
+  
+    
+    background-color: rgb(94, 94, 94);
+    
     border-style: solid;
     border-width: 1px;
     border-color: black;
     border-radius: 5px;
-    margin-left: 250px;
-  }
+    margin-left: 20px;
+    opacity: 0.9;
+
+}
+
+body{
+  background: no-repeat;
+  background-image: url(azul.jpg);
+  background-size: cover;
+}
+
