@@ -128,23 +128,35 @@ function BYE_ladrillo(){
                 if(ladrillos[i][j].color == color4){
                     puntos = puntos + 10;
                 }
+                
             }
         }
     }  
 }
 
 function puntuacion(){
-    ctx.font = "25px Original Surfer"
-    ctx.fillStyle = 'black';
-    ctx.fillText('Puntos: ', 10, 30);
-    ctx.fillText(puntos, 90, 30);
+    ctx.font = "25px Original Surfer";
+    ctx.fillStyle = 'white';
+    ctx.fillText('Puntos: ', 10, 40);
+    
+}
+
+function puntuacion2(){
+    ctx.font = "25px Original Surfer";
+    ctx.fillStyle = 'rgb(96,210,241)';
+    ctx.fillText(puntos, 110, 40);
 }
 
 function vidas_(){
-    ctx.font = "25px Original Surfer"
-    ctx.fillStyle = 'black';
-    ctx.fillText('Vidas: ', 400, 30);
-    ctx.fillText(vidas, 470, 30);
+    ctx.font = "25px Original Surfer";
+    ctx.fillStyle = 'white';
+    ctx.fillText('Vidas: ', 380, 40);
+    
+}
+function vidas_2(){
+    ctx.font = "25px Original Surfer";
+    ctx.fillStyle = 'rgb(96,210,241)';
+    ctx.fillText(vidas, 470, 40);
 }
 
 // funcion perder
@@ -273,9 +285,11 @@ function update(){
 
     // puntos
     puntuacion();
+    puntuacion2();
 
     // vidas
     vidas_();
+    vidas_2();
 
     // perder
     perder();
