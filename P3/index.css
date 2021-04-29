@@ -5,21 +5,50 @@
 
 canvas {
   
-    
     background-color: rgb(94, 94, 94);
-    
     border-style: solid;
     border-width: 1px;
     border-color: black;
     border-radius: 5px;
-    margin-left: 20px;
+    margin-left: 30px;
     opacity: 0.9;
 
 }
-
 body{
   background: no-repeat;
   background-image: url(azul.jpg);
   background-size: cover;
 }
+
+h1{
+  font-family: fantasy;
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+h2{
+  color: purple;
+  font-size: 28px;
+  margin-left: 10px;
+}
+div{
+  color: white;
+  margin: 6px;
+  padding: 2px;
+  border: solid;
+  border-radius: 20px;
+  border-color: rgb(108, 193, 239);
+  background-color: rgb(21, 21, 21);
+  opacity: 0.9;
+  margin-left: 600px;
+  margin-right: 80px;
+  margin-top: -800px;
+  margin-bottom: 1000px;
+  font-size: 20px;
+}
+ul{
+  list-style-image: url("mariposa.ico");
+}
+
 
