@@ -27,7 +27,8 @@ const ESTADO = {
     INIT : 0,
     BEGIN : 1,
     JUEGO : 2,
-    FIN: 3
+    FIN: 3,
+    WIN: 4
 }
     let estado = ESTADO.INIT
 
@@ -36,6 +37,9 @@ let puntos = 0;
 
 // vidas
 let vidas = 3;
+
+// boton
+const boton = document.getElementById("boton1");
 
 // sonidos
 const destruir = new Audio("plop.mp3");
@@ -159,8 +163,8 @@ function vidas_2(){
     ctx.fillText(vidas, 470, 40);
 }
 
-// funcion perder
-function perder(){
+// funcion fin
+function fin(){
     if(estado == ESTADO.FIN){
         estado = ESTADO.INIT;
         vidas = 3;
@@ -172,6 +176,18 @@ function perder(){
         }
     }
 }
+
+// funcion ganar
+function ganar(){
+    for(let i = 0; i < LADRILLO.FILA; i++){
+        for(let j = 0; j < LADRILLO.COLUMNA; j++){
+            if(ladrillos[i][j]== false){
+                estado = ESTADO.WIN;
+            }
+        }
+    }
+}
+
 
 // estado inicial
 function inicio(){
@@ -276,6 +292,8 @@ function update(){
         estado = ESTADO.FIN;
     }
 
+    
+
     // Dibujamos elementos visibles
     // Mi bloque
     bloque();
@@ -292,11 +310,22 @@ function update(){
     vidas_2();
 
     // perder
-    perder();
+    fin();
+
+    //ganar
+    ganar();
+
+    if(estado == ESTADO.WIN){
+        estado = ESTADO.INIT;
+    }
 
     // Volver a ejecutar cuando toque
     requestAnimationFrame(update);
 
+}
+// boton play again
+boton.onclick = (ev) =>{
+    estado = ESTADO.WIN;
 }
 
 
