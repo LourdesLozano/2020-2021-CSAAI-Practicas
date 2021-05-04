@@ -117,7 +117,7 @@ function BYE_ladrillo(){
     for(let i = 0; i < LADRILLO.FILA; i++){
         for(let j = 0; j < LADRILLO.COLUMNA; j++){
             if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+35+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
-                destruir.currentTime = 0.1;
+                destruir.currentTime = 0;
                 destruir.play();
                 ladrillos[i][j].VISIBLE = false;
                 velocidad_Y = -velocidad_Y;
@@ -146,7 +146,6 @@ function puntuacion(){
     ctx.font = "25px Original Surfer";
     ctx.fillStyle = 'white';
     ctx.fillText('Puntos: ', 10, 40);
-    
 }
 
 function puntuacion2(){
@@ -159,7 +158,6 @@ function vidas_(){
     ctx.font = "25px Original Surfer";
     ctx.fillStyle = 'white';
     ctx.fillText('Vidas: ', 380, 40);
-    
 }
 function vidas_2(){
     ctx.font = "25px Original Surfer";
@@ -270,8 +268,6 @@ window.onkeydown = (e) => {
     }
 }
 
-
-
 function update(){
 
     console.log("test");
@@ -281,11 +277,10 @@ function update(){
     if(estado == ESTADO.JUEGO){
          // Choque con mi bloque
          if(X_bola >= X_bloque && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
-            rebote.currentTime = 0.1;
+            rebote.currentTime = 0;
             rebote.play();
             //velocidad_X = -velocidad_X;
             velocidad_Y = -velocidad_Y;
-            
         }
 
         if(velocidad_X == 0 && velocidad_Y == 0){
@@ -301,6 +296,7 @@ function update(){
         // Rebote horizontal
         if (Y_bola <= 10 || Y_bola > (canvas.height - 12)) {
             velocidad_Y = -velocidad_Y;
+            
         }
 
         // Actualizamos posicion
