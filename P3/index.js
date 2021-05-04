@@ -185,7 +185,7 @@ function ganar(){
     while(gana == false){  
         for(let i = 0; i < LADRILLO.FILA; i++){
             for(let j = 0; j < LADRILLO.COLUMNA; j++){
-                if(ladrillos[i][j].VISIBLE == true){
+                if(ladrillos[i][j] == true){
                     gana = true;
                 }
             }
