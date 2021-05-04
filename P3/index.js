@@ -116,7 +116,7 @@ function BYE_ladrillo(){
     for(let i = 0; i < LADRILLO.FILA; i++){
         for(let j = 0; j < LADRILLO.COLUMNA; j++){
             if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+35+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
-                destruir.currentTime = 0;
+                destruir.currentTime = 0.1;
                 destruir.play();
                 ladrillos[i][j].VISIBLE = false;
                 velocidad_Y = -velocidad_Y;
@@ -180,14 +180,23 @@ function fin(){
 
 // funcion ganar
 function ganar(){
-    for(let i = 0; i < LADRILLO.FILA; i++){
-        for(let j = 0; j < LADRILLO.COLUMNA; j++){
-            if(ladrillos[i][j] == false){
-                estado = ESTADO.WIN;
+    gana = false;
+    
+    while(gana == false){  
+        for(let i = 0; i < LADRILLO.FILA; i++){
+            for(let j = 0; j < LADRILLO.COLUMNA; j++){
+                if(ladrillos[i][j].VISIBLE == true){
+                    gana = true;
+                }
             }
         }
     }
+    
+    if(gana == false){
+        estado = ESTADO.WIN;
+    }
 }
+
 
 
 // estado inicial
@@ -208,10 +217,10 @@ window.onkeydown = (e) => {
     //-- Según la tecla se hace una cosa u otra
     switch (e.key) {
         case ".": // derecha
-            X_bloque = X_bloque + 20;
+            X_bloque = X_bloque + 30;
             break;
         case ",": //izquierda
-            X_bloque = X_bloque - 20; 
+            X_bloque = X_bloque - 30; 
         case " ":
             estado = ESTADO.JUEGO;
             break;
@@ -227,6 +236,14 @@ function update(){
     inicio();
 
     if(estado == ESTADO.JUEGO){
+         // Choque con mi bloque
+         if(X_bola >= X_bloque && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
+            rebote.currentTime = 0.1;
+            rebote.play();
+            //velocidad_X = -velocidad_X;
+            velocidad_Y = -velocidad_Y;
+            
+        }
 
         if(velocidad_X == 0 && velocidad_Y == 0){
             velocidad_X = 5;
@@ -239,7 +256,7 @@ function update(){
         }
 
         // Rebote horizontal
-        if (Y_bola <= 12 || Y_bola > (canvas.height - 12)) {
+        if (Y_bola <= 10 || Y_bola > (canvas.height - 12)) {
             velocidad_Y = -velocidad_Y;
         }
 
@@ -247,17 +264,10 @@ function update(){
         X_bola = X_bola + velocidad_X;
         Y_bola = Y_bola + velocidad_Y;
 
-        // Choque con mi bloque
-        if(X_bola >= X_bloque && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
-            rebote.currentTime = 0;
-            rebote.play();
-            velocidad_X = -velocidad_X;
-            velocidad_Y = -velocidad_Y;
-            
-        }
+       
 
         // si no golpeo, pierdo
-        if(Y_bola > 770){
+        if(Y_bola > 762){
             estado = ESTADO.INIT;
             vidas = vidas - 1; // si no golpeo, resto una vida
         }
@@ -319,7 +329,13 @@ function update(){
 
     if(estado == ESTADO.WIN){
         estado = ESTADO.INIT;
+        for(let i = 0; i < LADRILLO.FILA; i++){
+            for(let j = 0; j < LADRILLO.COLUMNA; j++){
+                ladrillos[i][j] = true;
+            }
+        }
     }
+    
 
     // Volver a ejecutar cuando toque
     requestAnimationFrame(update);
