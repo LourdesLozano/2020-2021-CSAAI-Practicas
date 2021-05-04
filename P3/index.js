@@ -116,6 +116,7 @@ function BYE_ladrillo(){
     for(let i = 0; i < LADRILLO.FILA; i++){
         for(let j = 0; j < LADRILLO.COLUMNA; j++){
             if(X_bola >= ladrillos[i][j].x && X_bola <= (ladrillos[i][j].x+35+10) && Y_bola >= ladrillos[i][j].y && Y_bola <= (ladrillos[i][j].y)+30+10 && ladrillos[i][j].VISIBLE){
+                destruir.currentTime = 0;
                 destruir.play();
                 ladrillos[i][j].VISIBLE = false;
                 velocidad_Y = -velocidad_Y;
@@ -181,7 +182,7 @@ function fin(){
 function ganar(){
     for(let i = 0; i < LADRILLO.FILA; i++){
         for(let j = 0; j < LADRILLO.COLUMNA; j++){
-            if(ladrillos[i][j]== false){
+            if(ladrillos[i][j] == false){
                 estado = ESTADO.WIN;
             }
         }
@@ -247,7 +248,8 @@ function update(){
         Y_bola = Y_bola + velocidad_Y;
 
         // Choque con mi bloque
-        if(X_bola >= X_bloque-10 && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
+        if(X_bola >= X_bloque && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)){
+            rebote.currentTime = 0;
             rebote.play();
             velocidad_X = -velocidad_X;
             velocidad_Y = -velocidad_Y;
