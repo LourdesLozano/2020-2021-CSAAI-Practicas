@@ -37,8 +37,10 @@ let puntos = 0;
 // vidas
 let vidas = 3;
 
-// boton
-const boton = document.getElementById("boton1");
+// timepo
+let microsegundos = 0;
+let segundos = 0;
+let minutos = 0;
 
 // sonidos
 const destruir = new Audio("plop.mp3");
@@ -164,11 +166,18 @@ function vidas_2(){
     ctx.fillStyle = 'rgb(96,210,241)';
     ctx.fillText(vidas, 470, 40);
 }
+function cronometro(){
+    ctx.font = "25px Original Surfer";
+    ctx.fillStyle = 'red';
+    ctx.fillText('Tiempo: ', 180, 40);
+    ctx.fillText(minutos + ':' + segundos, 280, 40);
+}
 
 // funcion fin
 function fin(){
     if(estado == ESTADO.FIN){
         //estado = ESTADO.INIT;
+        microsegundos = 0;
         vidas = 3;
         puntos = 0;
         for(let i = 0; i < LADRILLO.FILA; i++){
@@ -178,10 +187,10 @@ function fin(){
         }
         ctx.font = "50px Original Surfer";
         ctx.fillStyle = 'red';
-        ctx.fillText('FIN DEL JUEGO', canvas.width/10,canvas.height/2);
+        ctx.fillText('FIN DEL JUEGO', 50, 400);
         ctx.font = "20px Original Surfer";
         ctx.fillStyle = 'white';
-        ctx.fillText('Pulsa espacio y vuelve a jugar', canvas.width/6,canvas.height/1.8);
+        ctx.fillText('Pulsa espacio y vuelve a jugar', 100, 470);
         X_bola = 250;
         Y_bola = 710;
         X_bloque = 210;
@@ -191,6 +200,7 @@ function fin(){
 
 // funcion ganar
 function ganar(){
+    microsegundos = 0;
     if(puntos == 189){
         for(let i = 0; i < LADRILLO.FILA; i++){
             for(let j = 0; j < LADRILLO.COLUMNA; j++){
@@ -199,7 +209,7 @@ function ganar(){
         }
         ctx.font = "50px Original Surfer";
         ctx.strokeStyle = 'green';
-        ctx.strokeText('GANASTE', canvas.width/10,canvas.height/2);
+        ctx.fillText('GANASTE', 60, 450);
         X_bola = 250;
         Y_bola = 710;
         X_bloque = 210;
@@ -207,6 +217,26 @@ function ganar(){
     }
 }
 
+function time(){
+    microsegundos ++;
+    if(microsegundos === 100){
+        microsegundos = 0;
+        segundos ++;
+        if(segundos < 10){
+            segundos = '0' + segundos;
+        }
+    }
+    if(segundos == 60){
+        minutos ++;
+        segundos = 0;
+        if(minutos < 10){
+            minutos = "0" + minutos;
+        }
+        if(segundos == 0){
+            segundos = "0" + segundos;
+        }
+    }
+}
 
 
 // estado inicial
@@ -218,10 +248,9 @@ function inicio(){
         Y_bloque = 760;
         velocidad_X = 0;
         velocidad_Y = 0;
-        boton.onclick = (ev) =>{
-            
-        ctx.closePath();
-        }
+        segundos = 0;
+        minutos = 0;
+        microsegundos = 0;
     }
 }
 
@@ -318,9 +347,6 @@ function update(){
         estado = ESTADO.FIN;
     }
 
-   
-
-    
 
     // Dibujamos elementos visibles
     // Mi bloque
@@ -342,15 +368,15 @@ function update(){
 
     //ganar
     ganar();
+
+    //time
+    time();
+    cronometro();
     
 
     // Volver a ejecutar cuando toque
     requestAnimationFrame(update);
 
-}
-// boton play again
-boton.onclick = (ev) =>{
-    
 }
 
 
