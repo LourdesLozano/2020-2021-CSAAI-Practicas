@@ -16,8 +16,8 @@ let X_bola = 250;
 let Y_bola = 720;
 
 // Velocidades
-let velocidad_X = 5;
-let velocidad_Y = -3;
+let velocidad_X = 4.5;
+let velocidad_Y = -2;
 
 // para mover bloque
 var evento = window.event;
@@ -28,9 +28,8 @@ const ESTADO = {
     BEGIN : 1,
     JUEGO : 2,
     FIN: 3,
-    WIN: 4
 }
-    let estado = ESTADO.INIT
+    let estado = ESTADO.INIT;
 
 // puntos
 let puntos = 0;
@@ -120,17 +119,19 @@ function BYE_ladrillo(){
                 destruir.play();
                 ladrillos[i][j].VISIBLE = false;
                 velocidad_Y = -velocidad_Y;
-                
-                if(ladrillos[i][j].color == color1){
+                if(ladrillos[i][j].y == 280){
                     puntos = puntos + 1;
                 }
-                if(ladrillos[i][j].color == color2){
+                if(ladrillos[i][j].y == 230){
                     puntos = puntos + 2;
                 }
-                if(ladrillos[i][j].color == color3){
+                if(ladrillos[i][j].y == 180){
+                    puntos = puntos + 3;
+                }
+                if(ladrillos[i][j].y == 130){
                     puntos = puntos + 5;
                 }
-                if(ladrillos[i][j].color == color4){
+                if(ladrillos[i][j].y == 80){
                     puntos = puntos + 10;
                 }
                 
@@ -167,7 +168,7 @@ function vidas_2(){
 // funcion fin
 function fin(){
     if(estado == ESTADO.FIN){
-        estado = ESTADO.INIT;
+        //estado = ESTADO.INIT;
         vidas = 3;
         puntos = 0;
         for(let i = 0; i < LADRILLO.FILA; i++){
@@ -175,25 +176,34 @@ function fin(){
                 ladrillos[i][j].VISIBLE = true;
             }
         }
+        ctx.font = "50px Original Surfer";
+        ctx.fillStyle = 'red';
+        ctx.fillText('FIN DEL JUEGO', canvas.width/10,canvas.height/2);
+        ctx.font = "20px Original Surfer";
+        ctx.fillStyle = 'white';
+        ctx.fillText('Pulsa espacio y vuelve a jugar', canvas.width/6,canvas.height/1.8);
+        X_bola = 250;
+        Y_bola = 710;
+        X_bloque = 210;
+        Y_bloque = 760;
     }
 }
 
 // funcion ganar
 function ganar(){
-    gana = false;
-    
-    while(gana == false){  
+    if(puntos == 189){
         for(let i = 0; i < LADRILLO.FILA; i++){
             for(let j = 0; j < LADRILLO.COLUMNA; j++){
-                if(ladrillos[i][j] == true){
-                    gana = true;
-                }
+                ladrillos[i][j].VISIBLE = true;
             }
         }
-    }
-    
-    if(gana == false){
-        estado = ESTADO.WIN;
+        ctx.font = "50px Original Surfer";
+        ctx.strokeStyle = 'green';
+        ctx.strokeText('GANASTE', canvas.width/10,canvas.height/2);
+        X_bola = 250;
+        Y_bola = 710;
+        X_bloque = 210;
+        Y_bloque = 760;
     }
 }
 
@@ -208,6 +218,10 @@ function inicio(){
         Y_bloque = 760;
         velocidad_X = 0;
         velocidad_Y = 0;
+        boton.onclick = (ev) =>{
+            
+        ctx.closePath();
+        }
     }
 }
 
@@ -304,6 +318,8 @@ function update(){
         estado = ESTADO.FIN;
     }
 
+   
+
     
 
     // Dibujamos elementos visibles
@@ -326,15 +342,6 @@ function update(){
 
     //ganar
     ganar();
-
-    if(estado == ESTADO.WIN){
-        estado = ESTADO.INIT;
-        for(let i = 0; i < LADRILLO.FILA; i++){
-            for(let j = 0; j < LADRILLO.COLUMNA; j++){
-                ladrillos[i][j] = true;
-            }
-        }
-    }
     
 
     // Volver a ejecutar cuando toque
@@ -343,7 +350,7 @@ function update(){
 }
 // boton play again
 boton.onclick = (ev) =>{
-    estado = ESTADO.WIN;
+    
 }
 
 
