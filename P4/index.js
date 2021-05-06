@@ -10,6 +10,17 @@ const gris = document.getElementById('gris');
 const origen = document.getElementById('origen');
 const rgb = document.getElementById('rgb');
 
+// acceder a los deslizantes
+const rojo = document.getElementById('rojo');
+const verde = document.getElementById('verde');
+const azul = document.getElementById('azul');
+
+// valor de los deslizantes
+const valorR = document.getElementById('valorR');
+const valorV = document.getElementById('valorV');
+const valorA = document.getElementById('valorA');
+
+
 
 // Imagen cargada
 img.onload = function () {
@@ -42,7 +53,9 @@ gris.onclick = () => {
     ctx.putImageData(imgData, 0, 0);
 }
 
-// funcion para los colores rgb
+// funcion para que aparezcan los deslizantes de los colores
+function barras(){
 
+}
 
 
