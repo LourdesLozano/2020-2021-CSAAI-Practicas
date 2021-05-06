@@ -17,7 +17,7 @@ const azul = document.getElementById('azul');
 
 // valor de los deslizantes
 const valorR = document.getElementById('valorR');
-const valorV = document.getElementById('valorV');
+const valorG = document.getElementById('valorV');
 const valorA = document.getElementById('valorA');
 
 
@@ -53,9 +53,51 @@ gris.onclick = () => {
     ctx.putImageData(imgData, 0, 0);
 }
 
-// funcion para que aparezcan los deslizantes de los colores
-function barras(){
+// fucnion de los colores
+function colores(){
+    // ponemos la original en el canvas
+    ctx.drawImage(img, 0,0);
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data;
 
+    // mostramos el valor de las barritas
+    valorR.innerHTML = rojo.value;
+    valorG.innerHTML = verde.value;
+    valorB.innerHTML = azul.value;
+
+
+    // obtenemos los umbrales de los colores
+    umbralR = rojo.value;
+    umbralG = verde.value;
+    umbralB = azul.value;
+
+    // Filtramos con nuevo umbral
+    for (let i = 0; i < data.length; i+=4) {
+        if (data[i] > umbralR){
+          data[i] = umbralR;
+        }
+        if (data[i+1] > umbralG){
+          data[i+1] = umbralG;
+        }
+        if (data[i+2] > umbralB){
+          data[i+2] = umbralB;
+        }   
+    }
+    //-- Poner la imagen modificada en el canvas
+    ctx.putImageData(imgData, 0, 0);
 }
+
+// llamamos  ala funcion
+
+rojo.oninput = () => {
+    colores();
+}
+verde.oninput = () => {
+    colores();
+}
+azul.oninput = () => {
+    colores();
+}
+
 
 

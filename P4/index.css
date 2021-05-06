@@ -46,6 +46,13 @@ button{
     
 }
 
+.deslizantes{
+    color: white;
+    font-size: 30px;
+    font-family: 'Avenir';
+    column-count: 3;
+}
+
 #original{
     border: solid;
     border-color: white;
