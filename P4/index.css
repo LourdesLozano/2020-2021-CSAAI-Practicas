@@ -10,7 +10,9 @@
 }
 
 body{
-    background-color: pink;
+    background: no-repeat;
+    background-image: url('ciudad.jpg');
+    background-size: cover;
     font-family: 'KingKong';
     text-align: center;
 }
@@ -22,6 +24,7 @@ h1{
 h2{
     
     font-size: 30px;
+
 }
 button{
     background-size: contain;
@@ -33,12 +36,23 @@ button{
     border-width: 5px;
     border-color: rgb(172, 84, 172);
     background-color: rgb(245, 185, 245);
+    margin-top: 400px;
 }
 
 .imagenes{
     column-count: 2;
     font-size: 30px;
-    border-radius: 20px;
+    color: white;
     
-    
+}
+
+#original{
+    border: solid;
+    border-color: white;
+    width: 800px;
+}
+#canvas{
+    border: solid;
+    border-color: white;
+    width: 800px;
 }
