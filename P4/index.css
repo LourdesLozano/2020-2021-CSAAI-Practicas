@@ -23,6 +23,9 @@ h2{
     
     font-size: 30px;
 }
+button{
+    background-size: contain;
+}
 
 .imagenes{
     column-count: 2;
