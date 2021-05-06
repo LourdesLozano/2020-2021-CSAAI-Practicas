@@ -8,6 +8,7 @@ const ctx = canvas.getContext('2d');
 // botones
 const gris = document.getElementById('gris');
 const origen = document.getElementById('origen');
+const rgb = document.getElementById('rgb');
 
 
 // Imagen cargada
@@ -40,6 +41,8 @@ gris.onclick = () => {
     //-- Poner la imagen modificada en el canvas
     ctx.putImageData(imgData, 0, 0);
 }
+
+// funcion para los colores rgb
 
 
 
