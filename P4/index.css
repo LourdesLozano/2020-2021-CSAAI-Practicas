@@ -25,11 +25,20 @@ h2{
 }
 button{
     background-size: contain;
+    font-family: 'Avenir';
+    font-size: 40px;
+    margin: 20px;
+    border: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: rgb(172, 84, 172);
+    background-color: rgb(245, 185, 245);
 }
 
 .imagenes{
     column-count: 2;
     font-size: 30px;
-    font-family: 'Avenir';
+    border-radius: 20px;
+    
     
 }
