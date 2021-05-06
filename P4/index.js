@@ -7,6 +7,7 @@ const ctx = canvas.getContext('2d');
 
 // botones
 const gris = document.getElementById('gris');
+const origen = document.getElementById('origen');
 
 
 // Imagen cargada
@@ -15,6 +16,13 @@ img.onload = function () {
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.drawImage(img, 0,0); //siturar original en el canvas
+}
+
+// Funcion volver a imagen original
+origen.onclick = () => {
+    console.log("Volvemos a la imagen original");
+    ctx.drawImage(img, 0, 0);
+
 }
 
 // funcion para la eleccion de grises
