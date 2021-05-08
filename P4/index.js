@@ -127,5 +127,16 @@ rgb.onclick = () => {
     }
 }
 
+// funcion espejo
+espejo.onclick = () => {
+    desliz.style.display = "none";
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data;
+    ctx.translate(img.width, 0);
+    ctx.scale(-1, 1);
+    ctx.putImageData(imgData, 0, 0);
+
+}
+
 
 
