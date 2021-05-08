@@ -31,12 +31,7 @@ button{
     font-family: 'Avenir';
     font-size: 40px;
     margin: 20px;
-    border: solid;
-    border-radius: 20px;
-    border-width: 5px;
-    border-color: rgb(172, 84, 172);
-    background-color: rgb(245, 185, 245);
-    margin-top: 400px;
+
 }
 
 .imagenes{
@@ -56,11 +51,52 @@ button{
     
 }
 
+.seleccion{
+    color: white;
+    font-size: 30px;
+}
+
+#origen{
+    border: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: rgb(172, 84, 172);
+    background-color: rgb(245, 185, 245);
+    margin-top: 100px;
+}
+
+#gris{
+    border: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: rgb(172, 84, 172);
+    background-color: rgb(245, 185, 245);
+    margin-top: 100px;
+}
+
+#rgb{
+    border: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: rgb(172, 84, 172);
+    background-color: rgb(245, 185, 245);
+    margin-top: 100px;
+}
+
+#img1{
+    background-color: white;
+}
+
+#img2{
+    background-color: white;
+}
+
 #original{
     border: solid;
     border-color: white;
     
 }
+
 #canvas{
     border: solid;
     border-color: white;

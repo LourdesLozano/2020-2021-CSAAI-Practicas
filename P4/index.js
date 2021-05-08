@@ -34,6 +34,14 @@ img.onload = function () {
     
 }
 
+// Para seleccionar imágenes
+img1.onclick = () => {
+    img.src="imagen.jpg";
+}
+img2.onclick = () => {
+    img.src="imagen2.jpeg";
+}
+
 // Funcion volver a imagen original
 origen.onclick = () => {
     desliz.style.display = "none";
