@@ -42,6 +42,7 @@ img2.onclick = () => {
     img.src="imagen2.jpeg";
 }
 
+
 // Funcion volver a imagen original
 origen.onclick = () => {
     desliz.style.display = "none";
