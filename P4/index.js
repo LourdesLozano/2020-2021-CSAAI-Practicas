@@ -9,6 +9,7 @@ const ctx = canvas.getContext('2d');
 const gris = document.getElementById('gris');
 const origen = document.getElementById('origen');
 const rgb = document.getElementById('rgb');
+const espejo = document.getElementById('espejo');
 
 // los deslizantes
 const rojo = document.getElementById('rojo');
@@ -126,14 +127,15 @@ rgb.onclick = () => {
         colores();
     }
 }
-
+ vvb
 // funcion espejo
 espejo.onclick = () => {
     desliz.style.display = "none";
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let data = imgData.data;
-    ctx.translate(img.width, 0);
+    ctx.drawImage(img, 0,0);
+    ctx.translate(2*(img.width)/2, 0);
     ctx.scale(-1, 1);
+    ctx.drawImage(img, 0, 0, img.width, img.height);
     ctx.putImageData(imgData, 0, 0);
 
 }
