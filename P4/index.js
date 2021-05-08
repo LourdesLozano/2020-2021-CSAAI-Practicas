@@ -69,6 +69,15 @@ gris.onclick = () => {
     ctx.putImageData(imgData, 0, 0);
 }
 
+// funcion espejo
+espejo.onclick = () => {
+    desliz.style.display = "none";
+    ctx.translate(img.width, 0);
+    ctx.scale(-1, 1);
+    ctx.drawImage(img, 0, 0);
+
+}
+
 // mostrar barra dslizantes
 function mostrar(){
     var m = document.getElementById('desliz');
@@ -127,18 +136,7 @@ rgb.onclick = () => {
         colores();
     }
 }
- vvb
-// funcion espejo
-espejo.onclick = () => {
-    desliz.style.display = "none";
-    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0,0);
-    ctx.translate(2*(img.width)/2, 0);
-    ctx.scale(-1, 1);
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    ctx.putImageData(imgData, 0, 0);
 
-}
 
 
 
