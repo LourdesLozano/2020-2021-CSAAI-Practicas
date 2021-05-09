@@ -82,7 +82,8 @@ espejo.onclick = () => {
 // funcion invertir
 invertir.onclick = () => {
     desliz.style.display = "none";
-    ctx.translate(img.width, 0);
+    ctx.drawImage(img, 0, 0);
+    ctx.translate(0, canvas.height);
     ctx.scale(1, -1);
     ctx.drawImage(img, 0, 0);
 }
