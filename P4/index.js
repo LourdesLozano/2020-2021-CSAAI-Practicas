@@ -10,6 +10,7 @@ const gris = document.getElementById('gris');
 const origen = document.getElementById('origen');
 const rgb = document.getElementById('rgb');
 const espejo = document.getElementById('espejo');
+const invertir = document.getElementById('invertir');
 
 // los deslizantes
 const rojo = document.getElementById('rojo');
@@ -76,6 +77,14 @@ espejo.onclick = () => {
     ctx.scale(-1, 1);
     ctx.drawImage(img, 0, 0);
 
+}
+
+// funcion invertir
+invertir.onclick = () => {
+    desliz.style.display = "none";
+    ctx.translate(img.width, 0);
+    ctx.scale(1, -1);
+    ctx.drawImage(img, 0, 0);
 }
 
 // mostrar barra dslizantes
