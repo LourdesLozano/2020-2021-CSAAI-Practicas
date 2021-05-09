@@ -49,8 +49,9 @@ img2.onclick = () => {
 origen.onclick = () => {
     desliz.style.display = "none";
     console.log("Volvemos a la imagen original");
-    ctx.drawImage(img, 0, 0);
-
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0,0);
 }
 
 // funcion para la eleccion de grises
@@ -109,11 +110,6 @@ function colores(){
     valorR.innerHTML = rojo.value;
     valorG.innerHTML = verde.value;
     valorB.innerHTML = azul.value;
-
-    // obtenemos los umbrales de los colores
-    //var umbralR = rojo.value;
-    //var umbralG = verde.value;
-    //var umbralB = azul.value;
 
     // Filtramos con nuevo umbral
     for (let i = 0; i < data.length; i+=4) {
