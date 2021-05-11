@@ -11,6 +11,7 @@ const origen = document.getElementById('origen');
 const rgb = document.getElementById('rgb');
 const espejo = document.getElementById('espejo');
 const invertir = document.getElementById('invertir');
+const ruido = document.getElementById('ruido');
 
 // los deslizantes
 const rojo = document.getElementById('rojo');
@@ -87,6 +88,21 @@ invertir.onclick = () => {
     ctx.translate(0, canvas.height);
     ctx.scale(1, -1);
     ctx.drawImage(img, 0, 0);
+}
+
+// funcion ruido
+ruido.onclick = () => {
+    desliz.style.display = "none";
+    var r = 0;
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data;
+    for (var i = 0; i < data.length; i+=4) {
+        r = Math.floor(Math.random() * (40 + 40 + 1) - 40)
+        data[i] += r; // rojo
+        data[i+1] += r; // verde
+        data[i+2] += r; // azul
+  }
+  ctx.putImageData(imgData, 0, 0);
 }
 
 // mostrar barra dslizantes
