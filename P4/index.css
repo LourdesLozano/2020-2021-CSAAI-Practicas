@@ -100,6 +100,15 @@ button{
     margin-top: 100px;
 }
 
+#ruido{
+    border: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: rgb(172, 84, 172);
+    background-color: rgb(245, 185, 245);
+    margin-top: 100px;
+}
+
 #img1{
     background-color: white;
 }
