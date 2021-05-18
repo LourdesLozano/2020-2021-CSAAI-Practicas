@@ -3,7 +3,7 @@ let directo = document.getElementById("directo");
 const video1 = document.getElementById("video1");
 const b_video1 = document.getElementById("b_video1");
 const b_pantalla = document.getElementById("b_pantalla");
-const btn_on = document.getElementById("btn_on");
+const b_on = document.getElementById("b_on");
 
 
 //-- Establecer las dimensiones de los vídeos
@@ -24,7 +24,7 @@ video1.poster = TEST_IMAGE_URL;
 btn_on.onclick = () => {
  
   //-- Establecer la fuente de la cámara 1
-  video1.src="https://www.youtube.com/watch?v=yZ7cBunq8xo";
+  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
 
   //-- Reprodeucimos un vídeo, desde el comienzo
   video1.currentTime = 0;
