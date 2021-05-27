@@ -21,7 +21,7 @@ video2.width=300;
 video2.height=200;
 video3.width=300;  
 video3.height=200;
-video4.width=300;  
+video4.width=300;
 video4.height=200;
 
 //-- Imagen de Test usada
@@ -95,7 +95,7 @@ btn_video3.onclick = () => {
 };
 
 //-- Botón de Selección de la cámara 4
-btn_video3.onclick = () => {
+btn_video4.onclick = () => {
     directo.src = video4.src;
     directo.currentTime = video4.currentTime;
     directo.play();
