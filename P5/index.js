@@ -24,7 +24,7 @@ video1.poster = TEST_IMAGE_URL;
 btn_src_on.onclick = () => {
  
   //-- Establecer la fuente de la cámara 1
-  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+  video1.src="https://github.com/LourdesLozano/Practica5/raw/main/loco_v1.mp4";
 
   //-- Reprodeucimos un vídeo, desde el comienzo
   video1.currentTime = 0;
