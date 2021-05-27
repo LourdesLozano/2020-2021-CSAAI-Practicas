@@ -1,4 +1,11 @@
-button{
+body{
+    background: no-repeat;
+    background-image: url("fondo2.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+input{
     background-size: contain;
     font-family: 'Avenir';
     font-size: 40px;

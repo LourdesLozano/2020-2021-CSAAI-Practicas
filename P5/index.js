@@ -7,10 +7,10 @@ const btn_src_on = document.getElementById("btn_src_on");
 
 
 //-- Establecer las dimensiones de los vídeos
-directo.width=420;
-directo.height=200;
-video1.width=200;  
-video1.height=100;
+directo.width=600;
+directo.height=400;
+video1.width=300;  
+video1.height=200;
 
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "monitor.jpg";
