@@ -25,3 +25,13 @@ input{
     background-color: rgb(224, 71, 54);
     border-color: rgb(131, 27, 3);
 }
+
+#btn_video2{
+    background-color: rgb(224, 147, 54);
+    border-color: rgb(131, 69, 3);
+}
+
+#btn_video3{
+    background-color: rgb(197, 74, 168);
+    border-color: rgb(131, 3, 101);
+}
