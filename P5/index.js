@@ -10,6 +10,7 @@ const btn_video3 = document.getElementById("btn_video3");
 const btn_video4 = document.getElementById("btn_video4");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
+const btn_src_off = document.getElementById("btn_src_off");
 
 
 //-- Establecer las dimensiones de los vídeos
@@ -62,6 +63,16 @@ btn_src_on.onclick = () => {
 
   //-- En la emisión en directo ponemos la imagen de prueba
   directo.poster = TEST_IMAGE_URL;
+};
+
+//-- Boton de Fuentes-OFF
+btn_src_off.onclick = () => {
+    directo.src = null;
+    directo.poster = TEST_IMAGE_URL;
+    video1.src = null;
+    video2.src = null;
+    video3.src = null;
+    video4.src = null;
 };
 
 //-- Botón de Test
