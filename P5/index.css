@@ -19,6 +19,7 @@ input{
     color: white;
     border-radius: 20px;
     padding: 10px;
+    background-color: rgb(123, 61, 177);
 }
 
 #btn_video1{
