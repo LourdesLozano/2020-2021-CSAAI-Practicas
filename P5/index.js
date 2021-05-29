@@ -11,7 +11,8 @@ const btn_video4 = document.getElementById("btn_video4");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
 const btn_src_off = document.getElementById("btn_src_off");
-
+const btn_manual = document.getElementById("btn_manual");
+const btn_auto = document.getElementById("btn_auto");
 
 //-- Establecer las dimensiones de los vídeos
 directo.width=600;
@@ -77,8 +78,8 @@ btn_src_off.onclick = () => {
 
 //-- Botón de Test
 btn_test.onclick = () => {
-    directo.poster = TEST_IMAGE_URL;
     directo.src = null;
+    directo.poster = TEST_IMAGE_URL;
 };
 
 //-- Botón de Selección de la cámara 1
